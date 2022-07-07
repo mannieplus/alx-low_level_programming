@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - tests function that prints if integer is pstv or ngtv
+ * main - tests function that prints if integer is positve or negative
  *
  * Return: 0
  *
