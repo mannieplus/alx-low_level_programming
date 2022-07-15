@@ -1,43 +1,42 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- *  * print_buffer - Function that prints content of input number
- *   * @b: character args
- *    * @size: int args
+ * print_buffer - print a buffer
+ * @b: the buffer to print
+ * @size: the number of bytes to prints
+ *
+ * Description: this prints the contents of ofsize bytes of the
+ * buffer pointed to by b. 10 bytes are printed per line, with each line
+ * prefixed with the position of the first byte, starting at 0.
+ *
+ * Return: void
  */
-
 void print_buffer(char *b, int size)
 {
-	int i = 0, j;
-
-	if (size < 0)
-	{
-		printf('\n');
-		return;
-	}
-	while (i < size)
-	{
-		if (i % 10 == 0)
-			printf("%08x: ", i);
-		for (j = i; j < i + 9; j += 2)
-		{
-			if ((j < size) && ((j + 1) < size))
-				printf("%02x%02x: ", b[j], b[j + 1]);
-			else
-			{
-				while (++j <= i + 10)
-					printf(" ");
-				printf(" ");
-			}
-		}
-		for (j = i; j < i + 9 && j < size; j++)
-		{
-			if (b[j] >= 32 && b[j] <= 126)
-				printf("%c", b[j]);
-			else
-				printf(".");
-		}
-		printf('\n');
-		i += 10;
-	}
+int b_pos;
+int l_pos;
+for (b_pos = 0; b_pos < size; b_pos += 10)
+{
+printf("%08x: ", b_pos);
+for (l_pos = 0; l_pos < 10; ++l_pos)
+{
+if (b_pos + l_pos < size)
+printf("%02x", b[b_pos + l_pos]);
+else
+printf("  ");
+if (l_pos % 2)
+putchar(' ');
+}
+for (l_pos = 0; l_pos < 10 && b_pos + l_pos < size; ++l_pos)
+{
+if (b[b_pos + l_pos] < 32 || b[b_pos + l_pos] > 126)
+putchar('.');
+else
+putchar(b[b_pos + l_pos]);
+}
+if (b_pos + l_pos < size)
+putchar('\n');
+}
+putchar('\n');
 }
