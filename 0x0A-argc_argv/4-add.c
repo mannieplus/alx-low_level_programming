@@ -34,16 +34,15 @@ int isInteger(const char *s)
 }
 
 /**
+ *   main - add positive numbers
  *
- *  * main - add positive numbers
+ *    @argc: int
  *
- *   * @argc: int
+ *     @argv: list
  *
- *    * @argv: list
+ *      Return: 0
  *
- *     * Return: 0
- *
- *      */
+ */
 
 int main(int argc, char const *argv[])
 
