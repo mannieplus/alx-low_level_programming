@@ -36,3 +36,20 @@ char *argstostr(int ac, char **av)
 	}
 	return (new_string);
 }
+
+/**
+ * len - gets the length of a string
+ *@str: string counnted
+ *Return: length of string
+ */
+int len(char *str)
+{
+	int len = 0;
+
+	if (str != NULL)
+	{
+		while (str[len])
+			len++;
+	}
+	return (len);
+}
