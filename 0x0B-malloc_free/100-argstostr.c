@@ -38,10 +38,11 @@ char *argstostr(int ac, char **av)
 }
 
 /**
- * len - gets the length of a string
+ *len - gets the length of a string
  *@str: string counnted
  *Return: length of string
  */
+
 int len(char *str)
 {
 	int len = 0;
